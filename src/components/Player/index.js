@@ -1,5 +1,8 @@
 import React from "react";
 import Slider from "rc-slider";
+import Sound from "react-sound";
+
+import { connect } from "react-redux";
 
 import {
   Container,
@@ -19,8 +22,11 @@ import PauseIcon from "../../assets/images/pause.svg";
 import ForwardIcon from "../../assets/images/forward.svg";
 import RepeatIcon from "../../assets/images/repeat.svg";
 
-const Player = () => (
+const Player = ({ player }) => (
   <Container>
+    {!!player.currentSong && (
+      <Sound url={player.currentSong.file} playStatus={player.status} />
+    )}
     <Current>
       <img
         src="https://upload.wikimedia.org/wikipedia/pt/0/06/Foo_Fighters_-_One_by_One.jpg"
@@ -74,4 +80,8 @@ const Player = () => (
   </Container>
 );
 
-export default Player;
+const mapStateToProps = (state) => ({
+  player: state.player,
+});
+
+export default connect(mapStateToProps)(Player);
