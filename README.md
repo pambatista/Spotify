@@ -1,12 +1,12 @@
 ## clone spotify
 
-###Technologies used:
+### Technologies used:
 
-*yarn
-*react
-*redux-saga
-*styled-component
+* yarn
+* react
+* redux-saga
+* styled-component
 
 
-to run this project you must:
+#### to run this project you must:
 yarn and then yarn start
