@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "rc-slider";
 import Sound from "react-sound";
+import PropTypes from "prop-types";
 
 import { connect } from "react-redux";
 
@@ -79,6 +80,15 @@ const Player = ({ player }) => (
     </Volume>
   </Container>
 );
+
+Player.propTypes = {
+  player: PropTypes.shape({
+    currentSong: PropTypes.shape({
+      file: PropTypes.string,
+    }),
+    status: PropTypes.string,
+  }).isRequired,
+};
 
 const mapStateToProps = (state) => ({
   player: state.player,
